@@ -6,7 +6,7 @@ const modalTitle = document.getElementById("modalTitle");
 const modalContent = document.getElementById("modalContent");
 const closeModal = document.getElementById("closeModal");
 
-const tanggalPengumuman = new Date("2025-06-02T20:00:00").getTime();
+const tanggalPengumuman = new Date("2025-05-02T20:00:00").getTime();
 
 function updateCountdown() {
   const now = new Date().getTime();
