@@ -8,7 +8,7 @@ const closeModal = document.getElementById("closeModal");
 const announcementStatus = document.getElementById("announcementStatus");
 
 
-const tanggalPengumuman = new Date("2025-05-02T20:00:00").getTime();
+const tanggalPengumuman = new Date("2025-06-02T20:00:00").getTime();
 
 function updateCountdown() {
   const now = new Date().getTime();
