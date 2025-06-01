@@ -5,6 +5,8 @@ const modal = document.getElementById("modal");
 const modalTitle = document.getElementById("modalTitle");
 const modalContent = document.getElementById("modalContent");
 const closeModal = document.getElementById("closeModal");
+const announcementStatus = document.getElementById("announcementStatus");
+
 
 const tanggalPengumuman = new Date("2025-05-02T20:00:00").getTime();
 
@@ -46,15 +48,32 @@ document.getElementById("cekForm").addEventListener("submit", async (e) => {
   modal.classList.remove("hidden");
 
   if (siswa) {
-    modalTitle.textContent = "Hasil Kelulusan";
-    modalContent.innerHTML = `
-      <p><span class="font-semibold">Nama:</span> ${siswa.nama}</p>
-      <p><span class="font-semibold">NISN:</span> ${siswa.nisn}</p>
-      <p><span class="font-semibold">Rata-rata Nilai:</span> ${siswa.rata_rata_nilai}</p>
-      <p class="mt-2 text-lg font-semibold ${siswa.status === "LULUS" ? "text-green-600" : "text-red-600"}">
-        ${siswa.status === "LULUS" ? "Selamat! Anda dinyatakan LULUS." : "Mohon maaf, Anda TIDAK LULUS."}
-      </p>
-    `;
+    modalTitle.textContent = "Detail Kelulusan";
+  const isLulus = siswa.status === "LULUS";
+
+  announcementStatus.classList.remove("hidden");
+
+  modalContent.innerHTML = `
+  <table class="w-full text-sm text-left text-gray-700 border-separate [border-spacing:0.5rem]">
+    <tr>
+      <td class="font-semibold w-1/3">Nama</td>
+      <td>: ${siswa.nama}</td>
+    </tr>
+    <tr>
+      <td class="font-semibold">NISN</td>
+      <td>: ${siswa.nisn}</td>
+    </tr>
+    <tr>
+      <td class="font-semibold">Rata-rata Nilai</td>
+      <td>: ${siswa.rata_rata_nilai}</td>
+    </tr>
+  </table>
+  <div class="mt-4 w-full px-4 py-3 rounded-xl text-white text-center font-semibold
+    ${siswa.status === "LULUS" ? "bg-green-500" : "bg-red-500"}">
+    ${siswa.status === "LULUS" ? "🎉 Selamat! Anda dinyatakan <strong>LULUS</strong>." : "Mohon maaf, Anda <strong>TIDAK LULUS</strong>."}
+  </div>
+`;
+
   } else {
     modalTitle.textContent = "Data Tidak Ditemukan";
     modalContent.innerHTML = `
