@@ -63,10 +63,6 @@ document.getElementById("cekForm").addEventListener("submit", async (e) => {
       <td class="font-semibold">NISN</td>
       <td>: ${siswa.nisn}</td>
     </tr>
-    <tr>
-      <td class="font-semibold">Rata-rata Nilai</td>
-      <td>: ${siswa.rata_rata_nilai}</td>
-    </tr>
   </table>
   <div class="mt-4 w-full px-4 py-3 rounded-xl text-white text-center font-semibold
     ${siswa.status === "LULUS" ? "bg-green-500" : "bg-red-500"}">
